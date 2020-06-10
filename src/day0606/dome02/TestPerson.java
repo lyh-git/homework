@@ -6,6 +6,7 @@ public class TestPerson {
 
 
     public static Person[] arr = new Person[3];
+    static int count=0;
 
     public static void print() {
         for (Person person : arr) {
@@ -22,19 +23,19 @@ public class TestPerson {
                     arr[j] = arr[j + 1];
                 }
                 arr[arr.length - 1] = null;
-
+                count--;
                 break;
             }
         }
     }
 
     public static void add(Person addPerson) {
-        if (hLength(arr) >= arr.length) {
+        if (count >= arr.length) {
             //重新赋予数组长度
             int newLen = (arr.length * 2);
             arr = Arrays.copyOf(arr, newLen);
         }
-        arr[hLength(arr)] = addPerson;
+        arr[count++] = addPerson;
 
 
     }
